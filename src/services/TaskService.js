@@ -1,22 +1,23 @@
-// Lag 4 (service): forretningslogik - validering, oprettelse af Task-objekter osv.
-// Kender intet til HTTP (req/res) og intet til filer.
+// Service: logikken - hent, opret og slet tasks. Kender intet til HTTP (req/res).
+// Husk mønstret: læs -> ændr -> skriv.
+const crypto = require('crypto');
 const Task = require('../models/Task');
 
 class TaskService {
-    constructor(taskRepository) {
-        this.taskRepository = taskRepository;
+    constructor(fileHandler) {
+        this.fileHandler = fileHandler;
     }
 
     async getAllTasks() {
-        // TODO: returnér alle tasks fra repository
+        // TODO: læs og returnér listen via this.fileHandler.read()
     }
 
     async createTask(text) {
-        // TODO: valider teksten, lav en ny Task (crypto.randomUUID()), gem via repository
+        // TODO: lav new Task(crypto.randomUUID(), text), læs listen, tilføj, skriv, returnér den nye task
     }
 
     async deleteTask(id) {
-        // TODO: slet via repository, returnér true/false alt efter om den fandtes
+        // TODO: læs listen, filtrér task med id væk, skriv. Returnér true hvis noget blev slettet
     }
 }
 

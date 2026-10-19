@@ -11,25 +11,23 @@ npm run dev     # starter med auto-genstart ved ændringer
 
 Åbn http://localhost:3000
 
-## Arkitektur (lagdelt, OOP)
+## Arkitektur (3 lag, OOP)
 
 ```
-public/                 Præsentation  - HTML/CSS/JS (fetch) serveret med express.static()
-src/routes/             Routes        - URL + metode -> controller
-src/controllers/        Controller    - HTTP: req/res og statuskoder
-src/services/           Service       - forretningslogik og validering
-src/repositories/       Data access   - læs/skriv tasks (kun her ved vi det er en fil)
-data/tasks.json         Data          - selve opgaverne
+public/                       Frontend   - HTML/CSS/JS (fetch) serveret med express.static()
+src/controllers/              Controller - HTTP: req/res og statuskoder
+src/services/                 Service    - logik: hent, opret, slet
+src/utils/FileHandler.js      Data       - læs/skriv JSON med fs-extra
+data/tasks.json               Selve opgaverne
 
-src/models/Task.js      Model for en opgave
-src/utils/FileHandler   Hjælpeklasse til fs-extra
-src/logging/            Request-logger middleware
-src/server/Server.js    Express-opsætning
-app.js                  Entry point - kobler lagene sammen
-tests/api.http          Manuelle API-kald (WebStorm / VS Code REST Client)
+src/models/Task.js            Model for en opgave
+src/server/Server.js          Express-opsætning og routes
+src/logging/                  Request-logger middleware
+app.js                        Entry point - kobler det hele sammen
+tests/api.http                Manuelle API-kald (WebStorm / VS Code REST Client)
 ```
 
-Flow for en request: `public -> routes -> controller -> service -> repository -> data/tasks.json`
+Flow for en request: `public -> Server (route) -> controller -> service -> FileHandler -> data/tasks.json`
 
 ## API
 
