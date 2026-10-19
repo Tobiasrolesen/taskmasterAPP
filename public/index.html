@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskmaster</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Taskmaster</h1>
+
+        <form id="task-form">
+            <input id="task-input" type="text" placeholder="New task..." maxlength="200" required>
+            <button type="submit">Add</button>
+        </form>
+        <p id="error" class="error"></p>
+
+        <ul id="task-list"></ul>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

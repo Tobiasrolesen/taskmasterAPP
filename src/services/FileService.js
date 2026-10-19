@@ -1,4 +1,4 @@
-// FileService: det eneste sted der læser/skriver tasks.json (med fs-extra).
+//FileService: det eneste sted der læser/skriver tasks.json (med fs-extra).
 const fs = require('fs-extra');
 
 class FileService {
