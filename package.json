@@ -1,0 +1,16 @@
+{
+  "name": "taskmaster-app",
+  "version": "1.0.0",
+  "description": "To-Do Taming - Taskmaster fullstack app med Node.js og Express",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0",
+    "fs-extra": "^11.4.1"
+  }
+}
